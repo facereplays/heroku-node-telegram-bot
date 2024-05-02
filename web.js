@@ -6,13 +6,7 @@ const packageInfo = require('./package.json');
 const app = express();
 app.use(bodyParser.json());
 
-app.get('/command', function (req, res) {
 
-
-
-
-  res.json({ version: packageInfo.version });
-});
 
 app.get('/', function (req, res) {
   res.json({ version: packageInfo.version });
