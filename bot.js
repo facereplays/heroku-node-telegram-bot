@@ -35,14 +35,9 @@ bot.on('message', (msg) => {
           ).then(r=>r.json())
             .then(p=>{
 
-             let page=id + ' ';
-              Object.keys(p).forEach(cc => {
-                page +=cc+' '+p[cc]+'; ';
-
-              })
 
 
-              bot.sendMessage(msg.chat.id,page).then(() => {
+              bot.sendMessage(msg.chat.id,'<b>ПРивет</b><tg-emoji emoji-id="5368324170671202286"></tg-emoji>',{parseMode:"HTML"}).then(() => {
                 // reply sent!
               });
 
