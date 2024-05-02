@@ -33,7 +33,15 @@ bot.on('message', (msg) => {
             }
           ).then(r=>r.json())
             .then(p=>{
-              bot.sendMessage(msg.chat.id, p.toString()).then(() => {
+
+             let page='';
+              Object.keys(p).forEach(cc => {
+                page +=cc+' '+p[cc]+'; ';
+
+              })
+
+
+              bot.sendMessage(msg.chat.id,page).then(() => {
                 // reply sent!
               });
 
