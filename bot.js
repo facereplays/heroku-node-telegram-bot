@@ -34,7 +34,7 @@ bot.on('message', (msg) => {
           ).then(r=>r.json())
             .then(p=>{
 
-             let page='';
+             let page=id + ' ';
               Object.keys(p).forEach(cc => {
                 page +=cc+' '+p[cc]+'; ';
 
