@@ -23,10 +23,11 @@ module.exports = (bot) => {
 const id = req.body.user;
 
     bot.sendMessage(id, 'Чтобы подтвердить посещение отправьте локацию.').then(() => {
+      res.json({ version: packageInfo.version });
       // reply sent!
     });
 
-    res.json({ version: packageInfo.version });
+
   });
   app.post('/' + bot.token, (req, res) => {
     bot.processUpdate(req.body);
