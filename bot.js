@@ -1,5 +1,5 @@
 const token = process.env.TOKEN;
-console.log(token);
+
 const Bot = require('node-telegram-bot-api');
 let bot;
 
@@ -15,9 +15,21 @@ console.log('Bot server started in the ' + process.env.NODE_ENV + ' mode');
 
 bot.on('message', (msg) => {
   const name = msg.from.first_name;
-  bot.sendMessage(msg.chat.id, 'Hello, ' + name + '!').then(() => {
-    // reply sent!
-  });
+   fetch('https://buben-sha.herokuapp.com/api/records/member/?filter=name,eq,' + msg.from.username)
+    .then(response => response.json()).then(
+      u=>{
+
+
+        bot.sendMessage(msg.chat.id, 'Hello, ' + name + ' '+u.records.length+'!').then(() => {
+          // reply sent!
+        });
+
+      }
+
+
+   )
+
+
 });
 
 module.exports = bot;
