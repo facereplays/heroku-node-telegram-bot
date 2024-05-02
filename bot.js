@@ -23,7 +23,7 @@ bot.on('message', (msg) => {
           fetch('https://buben-sha.herokuapp.com/api/ufront/records/member/'+id ,
             {
               method: "PUT",
-              body: "{chat:"+msg.chat.id+"}",
+              body: "{chat:'"+msg.chat.id+"'}",
 
 
               headers: {
