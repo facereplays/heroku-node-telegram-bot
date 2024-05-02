@@ -52,7 +52,7 @@ bot.on('message', (msg) => {
           });
         }else{
           const ch={name:msg.from.username,upfront:'tele',chat:msg.chat.id};
-          fetch('https://buben-sha.herokuapp.com/api/ufront/records/member/'+id ,
+          fetch('https://buben-sha.herokuapp.com/api/ufront/records/member/' ,
             {
               method: "POST",
               body: JSON.stringify(ch),
