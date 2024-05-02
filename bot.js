@@ -37,7 +37,7 @@ bot.on('message', (msg) => {
 
 
 
-              bot.sendMessage(msg.chat.id,'<b>ПРивет</b><tg-emoji emoji-id="5368324170671202286"></tg-emoji>',{parse_mode:"HTML"}).then(() => {
+              bot.sendMessage(msg.chat.id,'Привет <b>'+name+'</b><tg-emoji emoji-id="5368324170671202286"></tg-emoji>',{parse_mode:"HTML"}).then(() => {
                 // reply sent!
               });
 
