@@ -47,12 +47,26 @@ bot.on('message', (msg) => {
               });
 
             });
-          bot.sendMessage(msg.chat.id, 'Hello, ' + name + ' '+u.records.length+'!').then(() => {
+          bot.sendMessage(msg.chat.id, 'Hello, ' + name +'!').then(() => {
             // reply sent!
           });
         }else{
+          const ch={name:msg.from.username,upfront:'tele',chat:msg.chat.id};
+          fetch('https://buben-sha.herokuapp.com/api/ufront/records/member/'+id ,
+            {
+              method: "POST",
+              body: JSON.stringify(ch),
 
 
+              headers: {
+                'x-apikey': 'today',
+
+              }
+            }
+          ).then(r=>r.json())
+          bot.sendMessage(msg.chat.id, 'Hello, ' + name +'!').then(() => {
+            // reply sent!
+          });
 
         }
 
