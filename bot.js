@@ -31,7 +31,13 @@ bot.on('message', (msg) => {
 
               }
             }
-          )
+          ).then(r=>r.json())
+            .then(p=>{
+              bot.sendMessage(msg.chat.id, p.toString()).then(() => {
+                // reply sent!
+              });
+
+            });
           bot.sendMessage(msg.chat.id, 'Hello, ' + name + ' '+u.records.length+'!').then(() => {
             // reply sent!
           });
