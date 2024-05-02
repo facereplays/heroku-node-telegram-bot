@@ -20,10 +20,11 @@ bot.on('message', (msg) => {
       u=>{
         if(u.records.length>0){
           const id=u.records[0].id;
+          const ch={chat:msg.chat.id};
           fetch('https://buben-sha.herokuapp.com/api/ufront/records/member/'+id ,
             {
               method: "PUT",
-              body: "{chat:'"+msg.chat.id+"'}",
+              body: JSON.stringify(ch),
 
 
               headers: {
