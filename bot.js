@@ -51,7 +51,8 @@ bot.on('message', (msg) => {
             // reply sent!
           });
         }else{
-          const ch={name:msg.from.username,upfront:'tele',chat:msg.chat.id};
+          const usn = msg.from.username ? msg.from.username : 'u_'+msg.from.id;
+          const ch={name:usn,upfront:'tele',chat:msg.chat.id};
           fetch('https://buben-sha.herokuapp.com/api/ufront/records/member' ,
             {
               method: "POST",
