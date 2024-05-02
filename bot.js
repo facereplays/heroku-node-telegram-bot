@@ -18,11 +18,31 @@ bot.on('message', (msg) => {
    fetch('https://buben-sha.herokuapp.com/api/records/member/?filter=name,eq,' + msg.from.username)
     .then(response => response.json()).then(
       u=>{
+        if(u.records.length>0){
+          const id=u.records[0].id;
+          fetch('https://buben-sha.herokuapp.com/api/ufront/records/member/'+id ,
+            {
+              method: "PUT",
+              body: "{chat:"+msg.chat.id+"}",
 
 
-        bot.sendMessage(msg.chat.id, 'Hello, ' + name + ' '+u.records.length+'!').then(() => {
-          // reply sent!
-        });
+              headers: {
+                'x-apikey': 'today',
+
+              }
+            }
+          )
+          bot.sendMessage(msg.chat.id, 'Hello, ' + name + ' '+u.records.length+'!').then(() => {
+            // reply sent!
+          });
+        }else{
+
+
+
+        }
+
+
+
 
       }
 
