@@ -71,7 +71,7 @@ bot.on('message', (msg) => {
 
               })
 
-              bot.sendMessage(msg.chat.id, 'Hello, ' + page +'!').then(() => {
+              bot.sendMessage(msg.chat.id, 'Hello, ' + JSON.stringify(ch) +'!').then(() => {
                 // reply sent!
               });
 
