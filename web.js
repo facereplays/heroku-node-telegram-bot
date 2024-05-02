@@ -21,7 +21,7 @@ var server = app.listen(process.env.PORT, "0.0.0.0", () => {
 module.exports = (bot) => {
   app.post('/command', function (req, res) {
 const id = req.body.user;
-
+console.log(id);
     bot.sendMessage(id, 'Чтобы подтвердить посещение отправьте локацию.').then(() => {
       res.json({ version: packageInfo.version });
       // reply sent!
