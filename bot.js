@@ -63,10 +63,23 @@ bot.on('message', (msg) => {
 
               }
             }
-          ).then(r=>r.json())
-          bot.sendMessage(msg.chat.id, 'Hello, ' + name +'!').then(() => {
-            // reply sent!
-          });
+          ).then(r=>r.json()).then(
+            p=>{
+              let page=' ';
+              Object.keys(p).forEach(cc => {
+                page +=cc+' '+p[cc]+'; ';
+
+              })
+
+              bot.sendMessage(msg.chat.id, 'Hello, ' + page +'!').then(() => {
+                // reply sent!
+              });
+
+
+            }
+
+          )
+
 
         }
 
